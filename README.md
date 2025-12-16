@@ -31,9 +31,9 @@ Also we have 3 types of permissions on APIs:
 
 ## API endpoints discription
 
-**`GET http://localhost:8000/api/token/`**
+**`POST http://localhost:8000/api/token/`**
 
-To optain *'refresh and access JWT tokens'*.
+To optain *'refresh and access JWT tokens'* using username & password.
 - Authentication: Not Authenticated
 - Permissions: 
 
@@ -47,6 +47,12 @@ To get new *'access token'*.
 **`GET http://localhost:8000/api/users/`**
 
 To retrive list of users data.
+- Authentication: Authenticated
+- Permissions: Admin Only.
+
+**`GET http://localhost:8000/api/users/create/`**
+
+To create new user.
 - Authentication: Authenticated
 - Permissions: Admin Only.
 
