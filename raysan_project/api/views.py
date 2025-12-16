@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from rest_framework.response import Response
 from rest_framework import status, generics
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
-from .permission import IsAdminOrReadOnly, IsOwnerOrReadOnly, IsOwnerOrAdmin, IsOwner
+from .permission import IsOwnerOrAdmin, IsOwner
 
 from rest_framework_simplejwt.authentication import JWTAuthentication
 # Create your views here.
