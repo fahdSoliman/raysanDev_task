@@ -1,35 +1,62 @@
 # RaysanDev task
 
-User management API system with ristricted permissions on API.
-This project developed using Django & Django Rest Framework & simpleJWT.
+User management API system with restricted permissions on API.
+This project was developed using Django & Django Rest Framework, & simpleJWT.
 
-Packages and its versions can be reached in the file `raysan_project/requirement.txt`
+## Requirement
+* Python 3.10+ (tested on Python 3.13.9).
+* Virtual environment (recommended).
 
-## Preperation
-1. cloning the repository on any folder. `git clone https://github.com/fahdSoliman/raysanDev_task.git`.
-2. be sure using `Python 3.13` and create Virtual Enviroment if you want.
-3. installing packages after going inside *raysan_project* folder then Exicute the command `pip install -r requirements.txt`.
-4. run migration command `python manage.py migrate` .
-5. create SuperUser using `python manage.py createsuperuser` and fill the data.
-6. then run the server `python manage.py runserver`.
+Packages and their versions can be reached in the file:
 
-After running the server you can reach admin webpage http://localhost:8000/admin/ , so its easy to create users for testing from there if you want.
+`raysan_project/requirement.txt`
+
+
+## Setup
+1. cloning the repository on any folder.
+```
+git clone https://github.com/fahdSoliman/raysanDev_task.git
+cd raysanDev_task/raysan_project
+```
+2. Create and activate a virtual environment (optional but recommended)
+```
+python -m venv venv
+venv\Script\activate # to activate
+```
+3. Installing packages after going inside the *raysan_project* folder, then execute the command:
+```
+pip install -r requirements.txt
+```
+4. Run migration database command:
+```
+python manage.py migrate
+```
+5. Create SuperUser "admin" using:
+```
+python manage.py createsuperuser
+```
+6. then run the server
+```
+python manage.py runserver
+```
+
+After running the server, you can access the admin webpage at http://localhost:8000/admin/. It's easy to create users for testing from there if you want.
 
 
 ## Authentication & Permissions
 
-In this project we used simpleJWT to generate Bearer tokens to validate authenticated users and give them the right permissions depending to thier rule on the system.
+In this project, we used simpleJWT to generate Bearer tokens to validate authenticated users and give them the right permissions depending to thier rule on the system.
 
 We have two states of users reaching APIs:
-1. Authenticated.
-2. Not authenticated
+1. Authenticated, no JWT provided.
+2. Not authenticated, valid JWT access token provided.
 
-Also we have 3 types of permissions on APIs:
+Also, we have 3 levels of permissions on APIs:
 1. Admin Only.
 2. Owner Only.
 3. Admin Or Owner.
 
-## API endpoints discription
+## API endpoints description
 
 **`POST http://localhost:8000/api/token/`**
 
@@ -80,4 +107,13 @@ To update user password by ID.
 - Authentication: Authenticated
 - Permissions: Owner Only.
 
+## Notes
+* JWT must be sent in the `Authorization` header:
+```
+Authorization: Bearer <access_token>
+```
+* Passwords are securely hashed using Django’s built-in password hashing system.
+* Object-level permissions are enforced to prevent unauthorized data access.
 
+## Author
+Developed by Fahd Soliman
