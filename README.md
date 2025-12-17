@@ -1,6 +1,6 @@
 # RaysanDev task
 
-User management API system with restricted permissions on API.
+User management API system with restricted permissions on the API.
 This project was developed using Django & Django Rest Framework, & simpleJWT.
 
 ## Requirement
@@ -45,7 +45,7 @@ After running the server, you can access the admin webpage at http://localhost:8
 
 ## Authentication & Permissions
 
-In this project, we used simpleJWT to generate Bearer tokens to validate authenticated users and give them the right permissions depending to thier rule on the system.
+In this project, we used simpleJWT to generate Bearer tokens to validate authenticated users and give them the right permissions depending to thier rules on the system.
 
 We have two states of users reaching APIs:
 1. Authenticated, no JWT provided.
@@ -60,32 +60,32 @@ Also, we have 3 levels of permissions on APIs:
 
 **`POST http://localhost:8000/api/token/`**
 
-To optain *'refresh and access JWT tokens'* using username & password.
+To obtain *'refresh and access JWT tokens'* using username & password.
 - Authentication: Not Authenticated
-- Permissions: 
+- Permissions: Public
 
 **`POST http://localhost:8000/api/token/refresh/`**
 
-To get new *'access token'*.
+To get a new *' access token'*.
 - Authentication: Authenticated
-- Permissions: Admin Or Owner.
+- Permissions: Public
 
 
 **`GET http://localhost:8000/api/users/`**
 
-To retrive list of users data.
+To retrieve the list of users' data.
 - Authentication: Authenticated
 - Permissions: Admin Only.
 
 **`GET http://localhost:8000/api/users/create/`**
 
-To create new user.
-- Authentication: Authenticated
-- Permissions: Admin Only.
+To create a new user.
+- Authentication: Not Authenticated
+- Permissions: Public.
 
 **`GET http://localhost:8000/api/users/<id:int>/`**
 
-To retrive specific user data by ID.
+To retrieve specific user data by ID.
 - Authentication: Authenticated
 - Permissions: Admin Or Owner.
 
@@ -103,7 +103,7 @@ To delete specific user data by ID.
 
 **`PUT http://localhost:8000/api/user/<id:int>/change-password/`**
 
-To update user password by ID.
+To update the user password by ID.
 - Authentication: Authenticated
 - Permissions: Owner Only.
 
